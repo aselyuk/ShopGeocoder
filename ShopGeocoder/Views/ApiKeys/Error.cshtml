@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+    <div class="col-6 offset-3">
+        <h1 class="text-danger">Ошибка.</h1>
+        <h2 class="text-danger">Отсутствует API-ключ Яндекс.Карт и Геокодера</h2>
+        <hr/>
+
+        <h3>API-Ключ</h3>
+        <p>
+            Для работы необходимо получить <strong>API-Ключ Яндекс.Карт и Геокодера</strong> в <a class="btn btn-sm btn-outline-primary" href="https://developer.tech.yandex.ru/" target="_blank">Кабинете разработчика Яндекс</a>
+        </p>
+        <p>
+            Если <stron>API-Ключ</stron> уже есть, то его необходимо включить выбрав <strong>Использовать</strong>                                                                                      <a class="btn btn-sm btn-outline-primary" asp-area="" asp-controller="ApiKeys" asp-action="Index">Перейти с писку API-ключей</a>
+        </p>
+    </div>

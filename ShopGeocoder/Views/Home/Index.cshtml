@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="row">
+        <div class="col-8 offset-2">
+            <div class="jumbotron">
+                <h1 class="display-4">Добро пожаловать!</h1>
+                <p class="lead">На данном сайте вы можете геокодировать адреса магазинов из БД</p>
+                <hr class="my-4">
+                <p>Для геокодирования используется Яндекс.Карты и Яндекс.Геокодер</p>
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" role="button" asp-area="" asp-controller="Geocoder" asp-action="Index">Перейти к геокодированию</a>
+                </p>
+            </div>
+        </div>
+    </div>

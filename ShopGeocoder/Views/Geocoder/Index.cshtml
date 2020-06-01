@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ShopGeocoder.Models.Shop>
+
+@{
+    ViewData["Title"] = "Geocoder";
+}
+
+    <div aria-live="polite" aria-atomic="true" style="position: relative; z-index: 6666;">
+        <!-- Position it -->
+        <div id="stack" style="position: absolute; top: 0; right: 0;">
+            <!-- Then put toasts within -->
+        </div>
+    </div>
+
+<script src="https://api-maps.yandex.ru/2.1/?apikey=@(ViewData["ApiKey"])&lang=ru_RU" type="text/javascript"></script>
+<script src="~/js/map.js" asp-append-version="true"></script>
+<h3>@ViewData["Title"] <small id="currentItemName" class="badge badge-secondary"></small></h3>
+
+<div class="row geo-container">
+    <div class="col-4 geo-columns">
+        <ul id="items" class="list-group shop-pointer">
+            @foreach (var item in Model)
+            {
+                <li id="@item.Guid" onclick="setCurrentItem(this);" class="list-group-item justify-content-between">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 id="name_@item.Guid" class="mb-1">@Html.DisplayFor(modelItem => item.Name)</h5>
+                        <small id="ext_@item.Guid">@Html.DisplayFor(modelItem => item.AddressExt)</small>
+                    </div>
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="d-flex w-55 justify-content-start">
+                            <h6 id="address_@item.Guid" class="mb-1">@Html.DisplayFor(modelItem => item.Address)</h6>
+                        </div>
+                        <div class="d-flex w-45 justify-content-end">
+                            <div id="coords_@item.Guid">
+                                <small id="lat_@item.Guid" data-toggle="tooltip" data-placement="right" title="Широта" class="badge badge-@(item.Latitude == 0 ? "danger" : "light")">@Html.DisplayFor(modelItem => item.Latitude)</small><br />
+                                <small id="lon_@item.Guid" data-toggle="tooltip" data-placement="right" title="Долгота" class="badge badge-@(item.Longitude == 0 ? "danger" : "light")">@Html.DisplayFor(modelItem => item.Longitude)</small>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="col-8 geo-columns">
+        <div id="map" class="map-content-blocker"></div>
+    </div>
+</div>

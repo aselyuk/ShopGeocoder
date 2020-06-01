@@ -1,0 +1,43 @@
+﻿@model ShopGeocoder.Models.ApiKey
+
+@{
+    ViewData["Title"] = "Карточка API ключа";
+}
+
+    <div class="col-8 offset-2">
+        <h1>Карточка API ключа</h1>
+
+        <hr />
+        <div>
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Key)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Key)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Default)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Default)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@Model.Guid">Изменить</a> |
+            <a class="btn btn-sm btn-light" asp-action="Index">Вернуться к списку</a>
+        </div>
+    </div>
